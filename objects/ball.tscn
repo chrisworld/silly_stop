@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="SphereShape" id=1]
+radius = 1.68427
+
+[node name="ball" type="Spatial"]
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+radius = 1.69015
+
+[node name="Area" type="Area" parent="CSGSphere"]
+
+[node name="CollisionShape" type="CollisionShape" parent="CSGSphere/Area"]
+shape = SubResource( 1 )
