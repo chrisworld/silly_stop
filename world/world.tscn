@@ -25,5 +25,8 @@ transform = Transform( -0.913978, 0, 0.405764, 0, 1, 0, -0.405764, 0, -0.913978,
 [node name="man" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.151502, 0, 0.988457, 0, 1, 0, -0.988457, 0, 0.151502, -8.77618, 0, -6.06556 )
 
+[node name="man3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.967885, 0, 0.251394, 0, 1, 0, -0.251394, 0, 0.967885, 2.40283, 0, -21.7408 )
+
 [node name="man2" parent="." instance=ExtResource( 4 )]
 transform = Transform( -0.667248, 0, 0.744836, 0, 1, 0, -0.744836, 0, -0.667248, -8.77618, 0, -0.174585 )

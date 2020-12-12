@@ -16,6 +16,7 @@ func _ready():
 	# get anim tree
 	anim_tree = $actual_path/follower/Area/man_anim/AnimationTree
 
+	# set anim active
 	anim_tree.active = true
 	
 
