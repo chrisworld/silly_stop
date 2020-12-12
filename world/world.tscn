@@ -5,14 +5,14 @@
 [ext_resource path="res://objects/ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/cube_v2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://world/spawner.tscn" type="PackedScene" id=6]
-[ext_resource path="res://models/cobblestones.tscn" type="PackedScene" id=7]
+[ext_resource path="res://models/cobbles/cobblestones.tscn" type="PackedScene" id=7]
 
 [node name="world" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0190182, -4.76837e-07, 0.0182066 )
 script = ExtResource( 2 )
 
 [node name="ClippedCamera" type="ClippedCamera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.500953, 0.865475, 0, -0.865475, 0.500953, 0, 29.491, 19.575 )
+transform = Transform( 1, 0, 0, 0, 0.169643, 0.985506, 0, -0.985506, 0.169643, -1.8732, 24.5771, 7.53403 )
 fov = 86.5
 
 [node name="cube" parent="." instance=ExtResource( 1 )]

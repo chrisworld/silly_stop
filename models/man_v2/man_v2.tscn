@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://paths/path_container.tscn" type="PackedScene" id=1]
-[ext_resource path="res://models/man_anim.tscn" type="PackedScene" id=2]
-[ext_resource path="res://models/man.gd" type="Script" id=3]
+[ext_resource path="res://models/man_v2/man_v2.gd" type="Script" id=2]
+[ext_resource path="res://models/man_v2/man_anim_v2.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -14,8 +14,8 @@ _data = {
 radius = 1.35052
 height = 4.6114
 
-[node name="man" type="Spatial"]
-script = ExtResource( 3 )
+[node name="man_v2" type="Spatial"]
+script = ExtResource( 2 )
 
 [node name="path_container" parent="." instance=ExtResource( 1 )]
 
@@ -30,7 +30,7 @@ curve = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 3.38477, 0 )
 shape = SubResource( 2 )
 
-[node name="man_anim" parent="actual_path/follower/Area" instance=ExtResource( 2 )]
+[node name="man_anim_v2" parent="actual_path/follower/Area" instance=ExtResource( 3 )]
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 0.3

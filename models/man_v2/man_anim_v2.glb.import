@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/cobblestones.fbx-9f0e188643e53500568a23268010cad5.scn"
+path="res://.import/man_anim_v2.glb-5647af239ea3136c67b440a152f48def.scn"
 
 [deps]
 
-source_file="res://models/cobblestones.fbx"
-dest_files=[ "res://.import/cobblestones.fbx-9f0e188643e53500568a23268010cad5.scn" ]
+source_file="res://models/man_v2/man_anim_v2.glb"
+dest_files=[ "res://.import/man_anim_v2.glb-5647af239ea3136c67b440a152f48def.scn" ]
 
 [params]
 

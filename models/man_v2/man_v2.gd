@@ -4,6 +4,7 @@ export var group_id = 0
 export var path_id = 0
 export var max_speed = 0.15
 
+
 # actual speed of man
 var speed
 
@@ -25,7 +26,7 @@ func init(_group_id, _path_id):
 	$actual_path.curve = $path_container.get_child(path_id).curve
 	
 	# get anim tree
-	anim_tree = $actual_path/follower/Area/man_anim/AnimationTree
+	anim_tree = $actual_path/follower/Area/man_anim_v2/AnimationTree
 
 	# set anim active
 	anim_tree.active = true
@@ -38,7 +39,7 @@ func _ready():
 	$actual_path.curve = $path_container.get_child(path_id).curve
 	
 	# get anim tree
-	anim_tree = $actual_path/follower/Area/man_anim/AnimationTree
+	anim_tree = $actual_path/follower/Area/man_anim_v2/AnimationTree
 
 	# set anim active
 	anim_tree.active = true

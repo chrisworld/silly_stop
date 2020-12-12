@@ -1,7 +1,11 @@
 extends Spatial
 
 # man object
-const Man = preload("res://models/man.tscn")
+const Man = preload("res://models/man_v2/man_v2.tscn")
+
+# materials
+const group1_mat = preload("res://models/man_v2/mat/group1.material")
+const group2_mat = preload("res://models/man_v2/mat/group2.material")
 
 # randomizer
 var rng = RandomNumberGenerator.new()
@@ -40,14 +44,35 @@ func spawn_man(group_id, path_id):
 	# random var along path [0, 1]
 	var t = rng.randf()
 
+	# init man
 	man.init(group_id, path_id)
 
 	# set translation
 	man.translation = spawn_path.curve.interpolate_baked(t * spawn_path.curve.get_baked_length(), true)
 
+	# direction
 	var direction_y = PI/2
 
-	if group_id == 1:
+	# group settings
+	if group_id == 0:
+
+		# materials
+		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/BowlerHat").mesh.surface_set_material(0, group1_mat)
+		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Tophead").mesh.surface_set_material(0, group1_mat)
+		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Guy").mesh.surface_set_material(0, group1_mat)
+		
+		# direction
+		direction_y = PI/2
+
+	elif group_id == 1:
+
+		# materials
+		#man.actual_path/follower/Area/man_anim_v2/Armature/Skeleton/BowlerHat.mesh.surface_set_material(0, group2_mat)
+		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/BowlerHat").mesh.surface_set_material(0, group2_mat)
+		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Tophead").mesh.surface_set_material(0, group2_mat)
+		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Guy").mesh.surface_set_material(0, group2_mat)
+
+		# direction
 		direction_y = 3*PI/2
 
 	# set rotation
