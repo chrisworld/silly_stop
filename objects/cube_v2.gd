@@ -26,3 +26,9 @@ func _process(delta):
 # area enter
 func _on_Area_area_entered(area):
 	print("body entered: ", area)
+
+	# halt time
+	
+	
+	# destroy object
+
