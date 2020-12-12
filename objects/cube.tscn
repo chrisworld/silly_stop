@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/cube.gd" type="Script" id=1]
-[ext_resource path="res://objects/path.gd" type="Script" id=2]
 
-[sub_resource type="Curve3D" id=4]
+[sub_resource type="Curve3D" id=1]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0186174, 0, 0.0196804, 0, 0, 0, 0, 0, 0, 5.92695, 0, 2.06507, 0, 0, 0, 0, 0, 0, 10.0281, 0, -2.3203, 0, 0, 0, 0, 0, 0, 14.3729, 0, 2.10568, 0, 0, 0, 0, 0, 0, 18.9207, 0, 0.0348094, 0, 0, 0, 0, 0, 0, 24.0707, 0, 1.88865, 0, 0, 0, 0, 0, 0, 28.9559, 0, -2.84627, 0, 0, 0, 0, 0, 0, 33.0145, 0, 0.00971595 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 )
@@ -17,18 +16,17 @@ albedo_color = Color( 0.713726, 0.258824, 0.258824, 1 )
 [node name="cube" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="Path" type="Path" parent="."]
-curve = SubResource( 4 )
-script = ExtResource( 2 )
+[node name="cube_path" type="Path" parent="."]
+curve = SubResource( 1 )
 
-[node name="follow" type="PathFollow" parent="Path"]
+[node name="follower" type="PathFollow" parent="cube_path"]
 
-[node name="Area" type="Area" parent="Path/follow"]
+[node name="Area" type="Area" parent="cube_path/follower"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Path/follow/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="cube_path/follower/Area"]
 shape = SubResource( 2 )
 
-[node name="CSGBox" type="CSGBox" parent="Path/follow/Area"]
+[node name="CSGBox" type="CSGBox" parent="cube_path/follower/Area"]
 width = 2.11129
 material = SubResource( 3 )
-[connection signal="area_entered" from="Path/follow/Area" to="." method="_on_Area_area_entered"]
+[connection signal="area_entered" from="cube_path/follower/Area" to="." method="_on_Area_area_entered"]
