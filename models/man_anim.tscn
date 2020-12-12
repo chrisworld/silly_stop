@@ -11,7 +11,7 @@ nodes/Animation/position = Vector2( 280, 100 )
 nodes/output/position = Vector2( 600, 100 )
 node_connections = [ "output", 0, "Animation" ]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "Armature|SillyWalk1"
 length = 3.45833
 loop = true
@@ -161,10 +161,15 @@ tracks/19/keys = PoolRealArray( 0, 1, 2.91038e-11, 0, -1.16415e-10, -2.98024e-08
 [node name="Armature" parent="." index="0"]
 transform = Transform( 100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0.0146214, 4.90894, -0.32047 )
 
+[node name="Tophead" parent="Armature" index="1"]
+visible = false
+
+[node name="BowlerHat" parent="Armature" index="3"]
+visible = false
+
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 2 )
 anim_player = NodePath("../new_anim")
-active = true
 
 [node name="new_anim" type="AnimationPlayer" parent="." index="3"]
-anims/Armature|SillyWalk1 = SubResource( 7 )
+anims/Armature|SillyWalk1 = SubResource( 3 )

@@ -1,7 +1,7 @@
 extends Spatial
 
 export var path_id = 0
-export var speed = 10
+export var speed = 0.15
 
 var anim_tree
 var follow_path = true
@@ -25,12 +25,36 @@ func _process(delta):
 
 	# update position on path
 	if follow_path:
-		$actual_path/follower.set_offset($actual_path/follower.get_offset() + speed * delta)
+		
+		# get position along the line
+		var t0 = $actual_path/follower.get_unit_offset()
+		
+		# update on the path
+		var t = t0 + speed * delta
+		
+		# end of path reached
+		if t >= 1:
+			freeze()
+			
+		else:
+			# update path following
+			$actual_path/follower.set_unit_offset(t)
+
+
+# freeze the man
+func freeze():
+
+	# stop anim
+	anim_tree.active = false
+
+	# stop following the path
+	follow_path = false
 
 
 # something entered area
 func _on_Area_area_entered(area):
-	print("stop")
-	anim_tree.active = false
-	follow_path = false
+
+	# freeze
+	freeze()
+
 	
