@@ -6,16 +6,18 @@ const Man = preload("res://models/man.tscn")
 # randomizer
 var rng = RandomNumberGenerator.new()
 
+# number of groups
+var num_groups
+
 
 # ready
 func _ready():
 
-	# group id
-	var group_id = 0
-	var path_id = 0
+	# set number of groups
+	num_groups =  len(get_children()) - 1
 
-	# spawn
-	spawn_man(group_id, path_id)
+	# spawn first man
+	spawn_man(0, 0)
 
 
 
@@ -38,14 +40,23 @@ func spawn_man(group_id, path_id):
 	# random var along path [0, 1]
 	var t = rng.randf()
 
+	man.init(group_id, path_id)
+
 	# set translation
 	man.translation = spawn_path.curve.interpolate_baked(t * spawn_path.curve.get_baked_length(), true)
 
+	var direction_y = PI/2
+
+	if group_id == 1:
+		direction_y = 3*PI/2
+
 	# set rotation
-	man.rotate_y(PI/2)
+	man.rotate_y(direction_y)
 
 
 # spawn timer
 func _on_Spawn_timer_timeout():
 	
-	spawn_man(0, 0)
+	var group_id = rng.randi_range(0, num_groups - 1)
+	var path_id = rng.randi_range(0, 1)
+	spawn_man(group_id, path_id)

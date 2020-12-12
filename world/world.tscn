@@ -1,38 +1,464 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://objects/cube.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/world.gd" type="Script" id=2]
 [ext_resource path="res://objects/ball.tscn" type="PackedScene" id=3]
-[ext_resource path="res://models/man.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/cube_v2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://world/spawner.tscn" type="PackedScene" id=6]
-[ext_resource path="res://world/cobblestones.tscn" type="PackedScene" id=7]
+[ext_resource path="res://models/cobblestones.tscn" type="PackedScene" id=7]
 
 [node name="world" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0190182, -4.76837e-07, 0.0182066 )
 script = ExtResource( 2 )
 
 [node name="ClippedCamera" type="ClippedCamera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.941371, 0.337374, 0, -0.337374, 0.941371, 0, 20.4906, 28.7876 )
+transform = Transform( 1, 0, 0, 0, 0.500953, 0.865475, 0, -0.865475, 0.500953, 0, 29.491, 19.575 )
 fov = 86.5
 
 [node name="cube" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.01456, 0, -34.9361 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.01456, 1.02441, -34.9361 )
 
 [node name="ball" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6905, 0 )
 
 [node name="cube_v2" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.913978, 0, 0.405764, 0, 1, 0, -0.405764, 0, -0.913978, 12.4442, 0, -40.1265 )
-
-[node name="man" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.151502, 0, 0.988457, 0, 1, 0, -0.988457, 0, 0.151502, -19.8375, 0, -21.6424 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="man"]
-transform = Transform( 0.998761, 0.0436987, -0.0238056, 0.0244881, -0.0151491, 0.999585, 0.04332, -0.99893, -0.0162005, -22.1537, 19.3038, 30.5981 )
-
-[node name="man2" parent="." instance=ExtResource( 4 )]
-transform = Transform( -0.667248, 0, 0.744836, 0, 1, 0, -0.744836, 0, -0.667248, -8.77618, 0, -13.864 )
+transform = Transform( -0.913978, 0, 0.405764, 0, 1, 0, -0.405764, 0, -0.913978, 12.4442, 1.47821, -40.1265 )
 
 [node name="spawner" parent="." instance=ExtResource( 6 )]
 
-[node name="cobblestones" parent="." instance=ExtResource( 7 )]
+[node name="env" type="Spatial" parent="."]
+
+[node name="Floor" type="Spatial" parent="env"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -35 )
+
+[node name="row" type="Spatial" parent="env/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7201, 0, 0 )
+
+[node name="cobblestones" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="cobblestones2" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2318, 0, 0 )
+
+[node name="cobblestones3" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2318, 0, 0 )
+
+[node name="cobblestones4" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2318, 0, 0 )
+
+[node name="cobblestones5" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+
+[node name="cobblestones6" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2318, 0, 0 )
+
+[node name="cobblestones7" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.2318, 0, 0 )
+
+[node name="cobblestones8" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.2318, 0, 0 )
+
+[node name="cobblestones9" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.251, 0, 0 )
+
+[node name="cobblestones10" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.4828, 0, 0 )
+
+[node name="cobblestones11" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.483, 0, 0 )
+
+[node name="cobblestones12" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.483, 0, 0 )
+
+[node name="cobblestones13" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -130.251, 0, 0 )
+
+[node name="cobblestones14" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.483, 0, 0 )
+
+[node name="cobblestones15" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.483, 0, 0 )
+
+[node name="cobblestones16" parent="env/Floor/row" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.483, 0, 0 )
+
+[node name="row2" type="Spatial" parent="env/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7201, 0, 10.5824 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="cobblestones" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="cobblestones2" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2318, 0, 0 )
+
+[node name="cobblestones3" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2318, 0, 0 )
+
+[node name="cobblestones4" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2318, 0, 0 )
+
+[node name="cobblestones5" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+
+[node name="cobblestones6" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2318, 0, 0 )
+
+[node name="cobblestones7" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.2318, 0, 0 )
+
+[node name="cobblestones8" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.2318, 0, 0 )
+
+[node name="cobblestones9" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.251, 0, 0 )
+
+[node name="cobblestones10" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.4828, 0, 0 )
+
+[node name="cobblestones11" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.483, 0, 0 )
+
+[node name="cobblestones12" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.483, 0, 0 )
+
+[node name="cobblestones13" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -130.251, 0, 0 )
+
+[node name="cobblestones14" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.483, 0, 0 )
+
+[node name="cobblestones15" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.483, 0, 0 )
+
+[node name="cobblestones16" parent="env/Floor/row2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.483, 0, 0 )
+
+[node name="row3" type="Spatial" parent="env/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7201, 0, 20.5824 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="cobblestones" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="cobblestones2" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2318, 0, 0 )
+
+[node name="cobblestones3" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2318, 0, 0 )
+
+[node name="cobblestones4" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2318, 0, 0 )
+
+[node name="cobblestones5" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+
+[node name="cobblestones6" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2318, 0, 0 )
+
+[node name="cobblestones7" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.2318, 0, 0 )
+
+[node name="cobblestones8" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.2318, 0, 0 )
+
+[node name="cobblestones9" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.251, 0, 0 )
+
+[node name="cobblestones10" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.4828, 0, 0 )
+
+[node name="cobblestones11" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.483, 0, 0 )
+
+[node name="cobblestones12" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.483, 0, 0 )
+
+[node name="cobblestones13" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -130.251, 0, 0 )
+
+[node name="cobblestones14" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.483, 0, 0 )
+
+[node name="cobblestones15" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.483, 0, 0 )
+
+[node name="cobblestones16" parent="env/Floor/row3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.483, 0, 0 )
+
+[node name="row4" type="Spatial" parent="env/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7201, 0, 30.5824 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="cobblestones" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="cobblestones2" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2318, 0, 0 )
+
+[node name="cobblestones3" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2318, 0, 0 )
+
+[node name="cobblestones4" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2318, 0, 0 )
+
+[node name="cobblestones5" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+
+[node name="cobblestones6" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2318, 0, 0 )
+
+[node name="cobblestones7" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.2318, 0, 0 )
+
+[node name="cobblestones8" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.2318, 0, 0 )
+
+[node name="cobblestones9" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.251, 0, 0 )
+
+[node name="cobblestones10" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.4828, 0, 0 )
+
+[node name="cobblestones11" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.483, 0, 0 )
+
+[node name="cobblestones12" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.483, 0, 0 )
+
+[node name="cobblestones13" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -130.251, 0, 0 )
+
+[node name="cobblestones14" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.483, 0, 0 )
+
+[node name="cobblestones15" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.483, 0, 0 )
+
+[node name="cobblestones16" parent="env/Floor/row4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.483, 0, 0 )
+
+[node name="row5" type="Spatial" parent="env/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7201, 0, 41 )
+
+[node name="cobblestones" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="cobblestones2" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2318, 0, 0 )
+
+[node name="cobblestones3" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2318, 0, 0 )
+
+[node name="cobblestones4" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2318, 0, 0 )
+
+[node name="cobblestones5" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+
+[node name="cobblestones6" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2318, 0, 0 )
+
+[node name="cobblestones7" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.2318, 0, 0 )
+
+[node name="cobblestones8" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.2318, 0, 0 )
+
+[node name="cobblestones9" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.251, 0, 0 )
+
+[node name="cobblestones10" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.4828, 0, 0 )
+
+[node name="cobblestones11" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.483, 0, 0 )
+
+[node name="cobblestones12" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.483, 0, 0 )
+
+[node name="cobblestones13" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -130.251, 0, 0 )
+
+[node name="cobblestones14" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.483, 0, 0 )
+
+[node name="cobblestones15" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.483, 0, 0 )
+
+[node name="cobblestones16" parent="env/Floor/row5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.483, 0, 0 )
+
+[node name="row6" type="Spatial" parent="env/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7201, 0, 51.5824 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="cobblestones" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="cobblestones2" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2318, 0, 0 )
+
+[node name="cobblestones3" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2318, 0, 0 )
+
+[node name="cobblestones4" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2318, 0, 0 )
+
+[node name="cobblestones5" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+
+[node name="cobblestones6" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2318, 0, 0 )
+
+[node name="cobblestones7" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.2318, 0, 0 )
+
+[node name="cobblestones8" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.2318, 0, 0 )
+
+[node name="cobblestones9" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.251, 0, 0 )
+
+[node name="cobblestones10" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.4828, 0, 0 )
+
+[node name="cobblestones11" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.483, 0, 0 )
+
+[node name="cobblestones12" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.483, 0, 0 )
+
+[node name="cobblestones13" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -130.251, 0, 0 )
+
+[node name="cobblestones14" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.483, 0, 0 )
+
+[node name="cobblestones15" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.483, 0, 0 )
+
+[node name="cobblestones16" parent="env/Floor/row6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.483, 0, 0 )
+
+[node name="row7" type="Spatial" parent="env/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7201, 0, 61.5824 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="cobblestones" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="cobblestones2" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2318, 0, 0 )
+
+[node name="cobblestones3" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2318, 0, 0 )
+
+[node name="cobblestones4" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2318, 0, 0 )
+
+[node name="cobblestones5" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+
+[node name="cobblestones6" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2318, 0, 0 )
+
+[node name="cobblestones7" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.2318, 0, 0 )
+
+[node name="cobblestones8" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.2318, 0, 0 )
+
+[node name="cobblestones9" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.251, 0, 0 )
+
+[node name="cobblestones10" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.4828, 0, 0 )
+
+[node name="cobblestones11" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.483, 0, 0 )
+
+[node name="cobblestones12" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.483, 0, 0 )
+
+[node name="cobblestones13" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -130.251, 0, 0 )
+
+[node name="cobblestones14" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.483, 0, 0 )
+
+[node name="cobblestones15" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.483, 0, 0 )
+
+[node name="cobblestones16" parent="env/Floor/row7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.483, 0, 0 )
+
+[node name="row8" type="Spatial" parent="env/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7201, 0, 71.5824 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="cobblestones" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="cobblestones2" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2318, 0, 0 )
+
+[node name="cobblestones3" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2318, 0, 0 )
+
+[node name="cobblestones4" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2318, 0, 0 )
+
+[node name="cobblestones5" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0 )
+
+[node name="cobblestones6" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.2318, 0, 0 )
+
+[node name="cobblestones7" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.2318, 0, 0 )
+
+[node name="cobblestones8" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.2318, 0, 0 )
+
+[node name="cobblestones9" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.251, 0, 0 )
+
+[node name="cobblestones10" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.4828, 0, 0 )
+
+[node name="cobblestones11" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.483, 0, 0 )
+
+[node name="cobblestones12" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -119.483, 0, 0 )
+
+[node name="cobblestones13" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -130.251, 0, 0 )
+
+[node name="cobblestones14" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.483, 0, 0 )
+
+[node name="cobblestones15" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.483, 0, 0 )
+
+[node name="cobblestones16" parent="env/Floor/row8" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.483, 0, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="env"]
+transform = Transform( 0.194134, -0.980779, -0.01962, 0.0244881, -0.0151491, 0.999585, -0.980669, -0.194534, 0.0210765, 7.05108, 20.0781, 4.89125 )
+light_energy = 5.82
+light_indirect_energy = 3.93
+directional_shadow_max_distance = 57.9
