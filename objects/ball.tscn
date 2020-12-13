@@ -12,3 +12,4 @@ radius = 1.69015
 
 [node name="CollisionShape" type="CollisionShape" parent="CSGSphere/Area"]
 shape = SubResource( 1 )
+disabled = true
