@@ -4,6 +4,8 @@ export var group_id = 0
 export var path_id = 0
 export var max_speed = 0.15
 
+# collision signal
+signal collision_of_man
 
 # actual speed of man
 var speed
@@ -34,6 +36,9 @@ func init(_group_id, _path_id):
 
 # ready
 func _ready():
+	
+	# connect signal
+	connect("collision_of_man", get_tree().get_root().find_node("world", true, false), "on_collision_of_man")
 	
 	# get path to follow
 	$actual_path.curve = $path_container.get_child(path_id).curve
@@ -100,7 +105,10 @@ func freeze():
 
 # something entered area
 func _on_Area_area_entered(area):
-
+	
+	# emit signal
+	emit_signal("collision_of_man")
+	
 	# freeze
 	freeze()
 

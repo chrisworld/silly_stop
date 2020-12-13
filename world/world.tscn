@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://objects/cube.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/world.gd" type="Script" id=2]
 [ext_resource path="res://objects/ball.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/cube_v2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://world/spawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://models/cobbles/cobblestones.tscn" type="PackedScene" id=7]
 
@@ -12,20 +10,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0190182, -4.76837e-07, 0.018
 script = ExtResource( 2 )
 
 [node name="ClippedCamera" type="ClippedCamera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.169643, 0.985506, 0, -0.985506, 0.169643, 0.257152, 26.039, 4.88172 )
-projection = 1
+transform = Transform( 1, 0, 0, 0, 0.169643, 0.985506, 0, -0.985506, 0.169643, -1.8732, 24.5771, 7.53403 )
 fov = 86.5
-size = 50.0
-far = 1395.9
-
-[node name="cube" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.01456, 1.02441, -34.9361 )
-
-[node name="ball" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6905, 0 )
-
-[node name="cube_v2" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.913978, 0, 0.405764, 0, 1, 0, -0.405764, 0, -0.913978, 12.4442, 1.47821, -40.1265 )
 
 [node name="spawner" parent="." instance=ExtResource( 6 )]
 
@@ -461,7 +447,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.483, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.483, 0, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="env"]
-transform = Transform( 0.194134, -0.980779, -0.01962, 0.0244881, -0.0151491, 0.999585, -0.980669, -0.194534, 0.0210765, 7.05108, 20.0781, 4.89125 )
-light_energy = 5.82
+transform = Transform( 0.194134, -0.980779, -0.01962, 0.420688, 0.0651692, 0.904861, -0.88619, -0.183918, 0.425254, 7.05108, 20.0781, 4.89125 )
+light_energy = 3.93
 light_indirect_energy = 3.93
 directional_shadow_max_distance = 57.9
+
+[node name="middlte point" parent="env" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6905, 0 )
