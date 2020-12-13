@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://models/man_v2/man_anim_v2.glb" type="PackedScene" id=1]
+[ext_resource path="res://models/man_v2/mat/group2.material" type="Material" id=2]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "ArmatureArmatureSillyWalk1ArmatureSillyWalk1"
@@ -199,8 +200,15 @@ visible = false
 [node name="Armature" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0.0146214, 4.90894, -0.32047 )
 
+[node name="BowlerHat" parent="Armature/Skeleton" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Guy" parent="Armature/Skeleton" index="1"]
+material/0 = ExtResource( 2 )
+
 [node name="Tophead" parent="Armature/Skeleton" index="2"]
 visible = false
+material/0 = ExtResource( 2 )
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="5"]
 tree_root = SubResource( 2 )

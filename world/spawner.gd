@@ -1,7 +1,8 @@
 extends Spatial
 
 # man object
-const Man = preload("res://models/man_v2/man_v2.tscn")
+const Man1 = preload("res://models/man_v2/man_v2_group1.tscn")
+const Man2 = preload("res://models/man_v2/man_v2_group2.tscn")
 
 # materials
 const group1_mat = preload("res://models/man_v2/mat/group1.material")
@@ -27,11 +28,35 @@ func _ready():
 
 # spawn a man according his type
 func spawn_man(group_id, path_id):
-
+	var man;
 	# spawn
-	var man = Man.instance()
+	var direction_y = PI/2
+
+	# group settings
+	if group_id == 0:
+		man = Man1.instance()
+		
+		# materials
+		#man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/BowlerHat").mesh.surface_set_material(0, group1_mat)
+		#man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Tophead").mesh.surface_set_material(0, group1_mat)
+		#man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Guy").mesh.surface_set_material(0, group1_mat)
+		
+		# direction
+		direction_y = PI/2
+
+	elif group_id == 1:
+		man = Man2.instance()
+
+		# materials
+		#man.actual_path/follower/Area/man_anim_v2/Armature/Skeleton/BowlerHat.mesh.surface_set_material(0, group2_mat)
+		#man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/BowlerHat").mesh.surface_set_material(0, group2_mat)
+		#man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Tophead").mesh.surface_set_material(0, group2_mat)
+		#man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Guy").mesh.surface_set_material(0, group2_mat)
+
+		# direction
+		direction_y = 3*PI/2
+
 	add_child(man)
-	
 	# get group		
 	var group_node = get_child(group_id)
 
@@ -51,29 +76,6 @@ func spawn_man(group_id, path_id):
 	man.translation = spawn_path.curve.interpolate_baked(t * spawn_path.curve.get_baked_length(), true)
 
 	# direction
-	var direction_y = PI/2
-
-	# group settings
-	if group_id == 0:
-
-		# materials
-		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/BowlerHat").mesh.surface_set_material(0, group1_mat)
-		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Tophead").mesh.surface_set_material(0, group1_mat)
-		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Guy").mesh.surface_set_material(0, group1_mat)
-		
-		# direction
-		direction_y = PI/2
-
-	elif group_id == 1:
-
-		# materials
-		#man.actual_path/follower/Area/man_anim_v2/Armature/Skeleton/BowlerHat.mesh.surface_set_material(0, group2_mat)
-		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/BowlerHat").mesh.surface_set_material(0, group2_mat)
-		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Tophead").mesh.surface_set_material(0, group2_mat)
-		man.get_node("actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Guy").mesh.surface_set_material(0, group2_mat)
-
-		# direction
-		direction_y = 3*PI/2
 
 	# set rotation
 	man.rotate_y(direction_y)
