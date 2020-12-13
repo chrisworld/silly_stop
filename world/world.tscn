@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/Fonts/typewriter/timesbd.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://world/world.gd" type="Script" id=2]
 [ext_resource path="res://objects/ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world/spawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://models/cobbles/cobblestones.tscn" type="PackedScene" id=7]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -25,7 +28,7 @@ size = 48.0
 [node name="env" type="Spatial" parent="."]
 
 [node name="Floor" type="Spatial" parent="env"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -35 )
+transform = Transform( 2.67466, 0, 0, 0, 1, 0, 0, 0, 2.67466, 107.622, 0, -81.0925 )
 
 [node name="row" type="Spatial" parent="env/Floor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7201, 0, 0 )
@@ -454,14 +457,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.483, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -162.483, 0, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="env"]
-transform = Transform( 0.194134, -0.980779, -0.01962, 0.420688, 0.0651692, 0.904861, -0.88619, -0.183918, 0.425254, 7.05108, 20.0781, 4.89125 )
-light_energy = 3.93
-light_indirect_energy = 3.93
+transform = Transform( 0.194134, -0.980779, -0.0196198, 0.81669, 0.15051, 0.557103, -0.543442, -0.124176, 0.830212, 7.05108, 20.0781, 4.89125 )
+light_color = Color( 0.964706, 0.94902, 0.85098, 1 )
+light_energy = 5.39
+light_indirect_energy = 0.0
+light_specular = 0.41
 directional_shadow_max_distance = 57.9
 
 [node name="middlte point" parent="env" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6905, 0 )
 visible = false
+
+[node name="boden" type="CSGBox" parent="env"]
+transform = Transform( 305.187, 0, 0, 0, 1, 0, 0, 0, 168.69, 0, -1.71315, 0 )
+material_override = SubResource( 2 )
 
 [node name="UI" type="Control" parent="."]
 margin_right = 40.0
