@@ -8,7 +8,12 @@ var score
 func reset_game():
 	score = 0
 
-	
+
+# update
+func _process(delta):
+	$UI/Time.text = str(int($GameTimer.time_left))
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -38,3 +43,12 @@ func on_man_survived():
 	$UI/Score.text = str(score)
 
 
+func _on_GameTimer_timeout():
+	
+	# button activate
+	$UI/Button.visible = true
+	
+	$spawner.queue_free()
+	
+	
+	
