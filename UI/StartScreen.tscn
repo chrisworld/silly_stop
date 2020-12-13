@@ -4,11 +4,11 @@
 [ext_resource path="res://UI/title.png" type="Texture" id=2]
 [ext_resource path="res://UI/Fonts/typewriter/timesbd.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 25
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 25
 extra_spacing_space = 1
 font_data = ExtResource( 3 )
@@ -29,7 +29,7 @@ margin_left = 368.832
 margin_top = 253.906
 margin_right = 637.832
 margin_bottom = 317.906
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Start"
 script = ExtResource( 1 )
 __meta__ = {
@@ -41,10 +41,10 @@ margin_left = 253.186
 margin_top = 479.561
 margin_right = 775.186
 margin_bottom = 569.561
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "A game by Chistian Walter und Thomas Kerecz
-Initial idea by Kruemelkatze"
+Initial idea by Fabian Schober"
 align = 1
 valign = 1
 __meta__ = {

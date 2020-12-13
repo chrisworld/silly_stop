@@ -17,7 +17,6 @@ var anim_tree
 # follow path flag
 var follow_path = true
 
-
 # init
 func init(_group_id, _path_id):
 
@@ -54,9 +53,13 @@ func _ready():
 	# set speed
 	speed = max_speed
 	
+	
 
 # update
 func _process(delta):
+	if $DeathTimer.time_left != 0:
+		$actual_path/follower/Area/man_anim_v2/Armature/Skeleton/BowlerHat.translate(Vector3(0, delta * 10, 0))
+		$actual_path/follower/Area/man_anim_v2/Armature/Skeleton/Tophead.translate(Vector3(0, delta * 10, 0))
 
 	# update position on path
 	if follow_path:
@@ -78,6 +81,9 @@ func _process(delta):
 		# update on the path
 		var t = t0 + speed * delta
 		
+		
+
+		
 		# end of path reached
 		if t >= 1:
 
@@ -97,7 +103,7 @@ func _process(delta):
 
 # freeze the man
 func freeze():
-
+	
 	# stop anim
 	anim_tree.active = false
 
@@ -111,6 +117,7 @@ func freeze():
 # something entered area
 func _on_Area_area_entered(area):
 	
+	$actual_path/follower/Area/man_anim_v2/Dustcloud.restart()
 	# emit signal
 	emit_signal("collision_of_man")
 	
