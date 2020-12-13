@@ -4,13 +4,13 @@
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -20, 0, 20, 0, 0, 0, 0, 0, 0, -20, 0, -20 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -40, 0, 20, 0, 0, 0, 0, 0, 0, -40, 0, -20 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
 [sub_resource type="Curve3D" id=2]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 20, 0, 20, 0, 0, 0, 0, 0, 0, 20, 0, -20 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 39, 0, 20, 0, 0, 0, 0, 0, 0, 40, 0, -20 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
@@ -22,10 +22,26 @@ script = ExtResource( 1 )
 [node name="Path" type="Path" parent="group1"]
 curve = SubResource( 1 )
 
+[node name="edge1" type="CSGBox" parent="group1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -20 )
+visible = false
+
+[node name="edge2" type="CSGBox" parent="group1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 20 )
+visible = false
+
 [node name="group2" type="Spatial" parent="."]
 
 [node name="Path" type="Path" parent="group2"]
 curve = SubResource( 2 )
+
+[node name="edge1" type="CSGBox" parent="group2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -20 )
+visible = false
+
+[node name="edge2" type="CSGBox" parent="group2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 20 )
+visible = false
 
 [node name="Spawn_timer" type="Timer" parent="."]
 autostart = true
