@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://StartButton.gd" type="Script" id=1]
 [ext_resource path="res://UI/title.png" type="Texture" id=2]
@@ -9,12 +9,16 @@ size = 25
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 25
+size = 20
 extra_spacing_space = 1
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 100
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
 font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D"]
@@ -25,10 +29,10 @@ scale = Vector2( 1.11523, 1.11523 )
 texture = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 368.832
-margin_top = 253.906
-margin_right = 637.832
-margin_bottom = 317.906
+margin_left = 368.038
+margin_top = 315.021
+margin_right = 637.038
+margin_bottom = 379.021
 custom_fonts/font = SubResource( 1 )
 text = "Start"
 script = ExtResource( 1 )
@@ -37,16 +41,17 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 253.186
-margin_top = 479.561
-margin_right = 775.186
-margin_bottom = 569.561
+margin_left = 269.979
+margin_top = 147.665
+margin_right = 708.979
+margin_bottom = 272.665
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "A game by Chistian Walter und Thomas Kerecz
+text = "A game by Chistian Walter and Thomas Kerecz
 Initial idea by Fabian Schober"
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -56,9 +61,25 @@ margin_left = 99.0
 margin_top = 47.0
 margin_right = 895.0
 margin_bottom = 211.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Silly Stop"
 align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 31.0
+margin_top = 426.0
+margin_right = 796.0
+margin_bottom = 588.0
+custom_fonts/font = SubResource( 3 )
+text = "Use \"A\" to stop all yellow clerks and \"D\" to stop all blue clerks.
+
+For each clerk reachin the other side of the screen you get 1 point for each clerk in a collision you get -1 point. 
+Get the most points before time runs out."
 valign = 1
 autowrap = true
 __meta__ = {
