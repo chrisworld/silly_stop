@@ -12,8 +12,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0190182, -4.76837e-07, 0.018
 script = ExtResource( 2 )
 
 [node name="ClippedCamera" type="ClippedCamera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.169643, 0.985506, 0, -0.985506, 0.169643, -1.8732, 24.5771, 7.53403 )
+transform = Transform( 1, 0, 0, 0, 0.169643, 0.985506, 0, -0.985506, 0.169643, 0.257152, 26.039, 4.88172 )
+projection = 1
 fov = 86.5
+size = 50.0
+far = 1395.9
 
 [node name="cube" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.01456, 1.02441, -34.9361 )

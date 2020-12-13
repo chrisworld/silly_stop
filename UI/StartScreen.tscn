@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://StartButton.gd" type="Script" id=1]
+[ext_resource path="res://UI/title.png" type="Texture" id=2]
+[ext_resource path="res://UI/Fonts/typewriter/timesbd.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+extra_spacing_space = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 505.192, 299.359 )
+scale = Vector2( 1.11523, 1.11523 )
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 368.832
+margin_top = 253.906
+margin_right = 637.832
+margin_bottom = 317.906
+custom_fonts/font = SubResource( 2 )
+text = "Start"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 253.186
+margin_top = 479.561
+margin_right = 775.186
+margin_bottom = 569.561
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "A game by Chistian Walter und Thomas Kerecz
+Initial idea by Kruemelkatze"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 99.0
+margin_top = 47.0
+margin_right = 895.0
+margin_bottom = 211.0
+custom_fonts/font = SubResource( 3 )
+text = "Silly Stop"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
